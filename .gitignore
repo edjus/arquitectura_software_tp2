@@ -1,0 +1,24 @@
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+
+
+# Node
+node_modules/
+
+# Local files
+ip
+ips
+elb_dns
+redis_dns
+base_url
+src.zip
+lambda.zip
+*.pem
+*.bak

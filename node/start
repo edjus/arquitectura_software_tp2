@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+IP=$1
+
+echo -n 'Starting remote app... '
+$DIR/remote $IP 'nohup node ~ > node.out 2> node.err < /dev/null &'
+echo 'Started.'

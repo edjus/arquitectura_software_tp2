@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [[ -z $1 ]]; then
+    IP=`cat $DIR/ip`
+    COMMAND=''
+elif [[ -z $2 ]]; then
+    IP=$1
+    COMMAND=''
+else
+    IP=$1
+    COMMAND="${@:2}"
+fi
+
+# The -o StrictHostKeyChecking=no is to avoid asking for permission to add the $IP to the list of known hosts
+ssh -o StrictHostKeyChecking=no -i $DIR/../key.pem ec2-user@$IP -- $COMMAND

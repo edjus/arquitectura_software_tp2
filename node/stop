@@ -1,0 +1,8 @@
+#!/bin/bash
+
+DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+IP=$1
+
+echo -n 'Stopping remote app... '
+$DIR/remote $IP 'pkill node'
+echo 'Stopped.'

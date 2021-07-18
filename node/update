@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e
+
+DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+IP=$1
+
+if [[ -z $IP ]]; then
+    IP=`cat $DIR/ip`
+fi;
+
+echo "using IP $IP..."
+
+$DIR/stop $IP
+
+# The -o for the unzip command overrides if there's any existing file
+$DIR/remote $IP "\
+    echo 'Downloading updated src' && \
+    curl https://s3.amazonaws.com/$(cat $DIR/../source_location)/src.zip > src.zip && \
+    echo 'Unpacking src code' && \
+    unzip -o src.zip  && \
+    echo 'Installing dependencies' && \
+    npm i"
+
+$DIR/start $IP

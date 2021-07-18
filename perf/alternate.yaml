@@ -1,0 +1,17 @@
+config:
+  target: "{{ $processEnvironment.TARGET }}"
+  phases:
+    - duration: 30
+      arrivalRate: 10
+  plugins:
+    publish-metrics:
+      - type: datadog
+        apiKey: "{{ $processEnvironment.DATADOG_API_KEY }}"
+        prefix: "artillery."
+        tags:
+          - "test:alternate"
+
+scenarios:
+  - flow:
+    - get:
+        url: '/alternate'

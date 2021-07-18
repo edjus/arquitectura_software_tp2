@@ -1,0 +1,22 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "app.js",
+  "engines": {
+    "node": ">=8.9.4",
+    "npm": "~5.6.0"
+  },
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect-datadog": "0.0.9",
+    "express": "^4.17.1",
+    "got": "^9.6.0",
+    "redis": "^2.8.0"
+  }
+}

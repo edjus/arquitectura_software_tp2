@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+IP=`cat $DIR/ip`
+
+$DIR/stop
+
+echo 'Copying files...'
+FILES=( 'app.py' 'requirements.txt' )
+for FILE in "${FILES[@]}"; do
+    scp -i $DIR/../key.pem $DIR/$FILE ec2-user@$IP:~/app/$FILE
+done
+
+echo 'Installing dependencies...'
+$DIR/remote 'cd app && sudo pip install -r requirements.txt'
+
+$DIR/start

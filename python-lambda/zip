@@ -1,0 +1,7 @@
+OLD_DIR="$(pwd)"
+DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd $DIR
+
+zip lambda.zip lambda.py
+
+cd $OLD_DIR
