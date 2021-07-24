@@ -11,6 +11,15 @@ resource "aws_security_group" "apps" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+
+  ingress {
+    description = "Redis"
+    from_port   = 6379
+    to_port     = 6379
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   ingress {
     description = "Traffic"
     from_port   = 3000
