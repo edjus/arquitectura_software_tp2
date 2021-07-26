@@ -7,10 +7,10 @@ config:
    - name: Ramp
      duration: 60
      arrivalRate: 0
-     rampTo: 10
+     rampTo: 500
    - name: Plain
      duration: 30
-     arrivalRate: 10
+     arrivalRate: 500
    - name: EndPad
      duration: 30
      arrivalRate: 0
