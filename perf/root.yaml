@@ -1,8 +1,19 @@
 config:
   target: "{{ $processEnvironment.TARGET }}"
   phases:
-    - duration: 60
-      arrivalRate: 10
+   - name: BeginPad
+     duration: 30
+     arrivalRate: 0
+   - name: Ramp
+     duration: 60
+     arrivalRate: 0
+     rampTo: <RPS>
+   - name: Plain
+     duration: 30
+     arrivalRate: <RPS>
+   - name: EndPad
+     duration: 30
+     arrivalRate: 0
   plugins:
     publish-metrics:
       - type: datadog
