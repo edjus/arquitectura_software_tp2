@@ -1,0 +1,28 @@
+config:
+  target: "{{ $processEnvironment.TARGET }}"
+  phases:
+   - name: BeginPad
+     duration: 30
+     arrivalRate: 0
+   - name: Ramp
+     duration: 60
+     arrivalRate: 0
+     rampTo: 10
+   - name: Plain
+     duration: 30
+     arrivalRate: 10
+   - name: EndPad
+     duration: 30
+     arrivalRate: 0
+  plugins:
+    publish-metrics:
+      - type: datadog
+        apiKey: "{{ $processEnvironment.DATADOG_API_KEY }}"
+        prefix: "artillery."
+        tags:
+          - "test:remote:cached"
+
+scenarios:
+  - flow:
+    - get:
+        url: '/remote/cached'
