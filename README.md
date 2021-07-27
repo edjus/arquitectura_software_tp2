@@ -1,3 +1,9 @@
+# Link al informe:
+
+https://docs.google.com/document/d/1VsVxu2UowR_zuLzmpGDcLd-C5FEYzN4wL_7jPkdgtfA/edit?usp=sharing
+
+
+
 # Punto de partida para el TP 2 de Arquitectura de Software (75.73) del 1er cuatrimestre de 2021
 
 > La fecha de entrega para el informe y el código será el __*jueves 29/07/2021 a las 17:59hs*__.
