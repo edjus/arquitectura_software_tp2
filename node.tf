@@ -46,8 +46,8 @@ resource "aws_elb" "node_asg_elb" {
 resource "aws_autoscaling_group" "node_asg" {
   name_prefix      = "node_asg-"
   max_size         = 3
-  min_size         = 0
-  desired_capacity = 1
+  min_size         = 3
+  desired_capacity = 3
 
   load_balancers     = [aws_elb.node_asg_elb.name]
   availability_zones = [var.availability_zone]
